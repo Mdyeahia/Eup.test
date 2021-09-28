@@ -64,6 +64,8 @@ namespace Euphoria.Web.Models
 
     public class RegisterViewModel
     {
+        
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

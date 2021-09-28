@@ -1,0 +1,53 @@
+﻿@model Euphoria.Web.ViewModels.ListViewModel
+@{
+    ViewBag.Title = "UserDetailsTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<table id="myTable" class="table">
+    <thead style="background-color:darkseagreen">
+        <tr>
+            <td>Name</td>
+
+            <td>Role</td>
+
+            <td>Address</td>
+
+            <td>Username</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        @if (Model.listuser != null && Model.listuser.Count > 0)
+        {
+            foreach (var user in Model.listuser)
+            {
+                <tr>
+                    <td>@user.Name</td>
+
+                    <td>@user.Role.Name</td>
+
+                    <td>@user.Address</td>
+
+                    <td>@user.UserName</td>
+                </tr>
+            }
+
+        }
+        else
+        {
+            <tr>
+                <td colspan="12" class="text-center alert alert-danger">
+                    No user found!!!.
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script> 

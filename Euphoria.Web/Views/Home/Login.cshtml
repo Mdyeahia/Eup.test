@@ -1,0 +1,46 @@
+﻿@model Euphoria.Web.Models.UserMaster
+
+@{
+    ViewBag.Title = "Login";
+
+}
+
+<main class="login-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header text-center">Login</div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">USERNAME</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(m => m.UserName, "", new { @class = "form-control", @placeholder = "Username" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">PASSWORD</label>
+                                <div class="col-md-6">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                                </div>
+                                <div class="col-md-12">
+
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                                    <a href='@Url.Action("Login","Home")' class="btn btn-link">
+                                            Refresh
+                                    </a>
+                                    <a href='@Url.Action("Register","Home")' class="btn btn-link">
+                                        New Registration
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

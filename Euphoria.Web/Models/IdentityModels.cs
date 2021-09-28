@@ -21,9 +21,13 @@ namespace Euphoria.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
+           
         }
+        public DbSet<UserMaster> UserMasters { get; set; }
+        public DbSet<Role> Roless { get; set; }
+       
 
         public static ApplicationDbContext Create()
         {
